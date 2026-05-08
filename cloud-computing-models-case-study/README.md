@@ -1,0 +1,3 @@
+This repository contains a structured academic case study analyzing key concepts in cloud computing, including the Infrastructure-as-a-Service (IaaS) shared responsibility model, cloud service delivery models (SaaS, PaaS, IaaS), deployment models (Public, Private, Community Cloud), and the evolution of software delivery from Application Service Providers (ASP) to modern SaaS architectures.
+
+The study applies theoretical cloud computing frameworks (NIST standards, industry models, and academic literature) to real-world enterprise and institutional scenarios, demonstrating how cloud computing transforms infrastructure management, software lifecycle responsibilities, scalability, security, and cost structures.
