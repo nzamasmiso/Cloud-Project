@@ -1,0 +1,35 @@
+Resource Virtualization
+1. Current Setup Problem and Virtualization Solution
+The current non-virtualized setup presents a significant problem of under-utilized hardware, characterized by the 20% CPU utilization rate. In traditional distributed environments, physical servers often operate at low capacity, leading to "server sprawl," which results in excessive infrastructure costs, wasted energy, and inefficient use of floor space (Obasuyi and Sari 2015; Geeta and Prakash 2019; Koratagere, Chandrashekarappa Koppal and Umesh 2023)
+Transitioning to a virtualized environment addresses this through server consolidation, a technique where multiple virtual machines (VMs) are bundled into the fewest possible physical hosts (Koratagere, Chandrashekarappa Koppal and Umesh 2023; Juiz and Bermejo 2024). This process "squeezes" more processing power onto fewer servers, which can increase total resource utilization to 70%–80% (Nguyen, Kim and Park 2014; Geeta and Prakash 2019). This allows the company to reduce the number of physical machines they must maintain, thereby cutting capital expenditure and energy consumption (Geeta and Prakash 2019; Koratagere, Chandrashekarappa Koppal and Umesh 2023).
+2. Comparison of Hypervisor Approaches
+The choice between hypervisor types is defined by their relationship with the underlying hardware:
+•	Hosted (Type 2) Hypervisor: This hypervisor is installed as an application on an existing host operating system (Obasuyi and Sari 2015; Geeta and Prakash 2019). While it provides better hardware compatibility for legacy drivers because it relies on the host OS for device support, it introduces significant performance overhead because every request from the guest VM must pass through the host OS layer (Obasuyi and Sari 2015; Hijji et al. 2022).
+•	Bare Metal (Type 1) Hypervisor: This hypervisor runs directly on the system hardware without an underlying host OS (Nguyen, Kim and Park 2014; Obasuyi and Sari 2015; Geeta and Prakash 2019). It has direct and privileged access to hardware resources, which results in much higher efficiency and lower overhead, measured as low as 2.5% in certain implementations (Obasuyi and Sari 2015; Chawla et al. 2025).
+Recommendation: For the transaction processing system, the Bare Metal (Type 1) approach is recommended. Because this system demands consistent, real-time performance, it requires the faster hardware transactions and minimized latency provided by a hypervisor that interacts directly with hardware resources rather than passing through a middleman host OS (Nguyen, Kim and Park 2014; Obasuyi and Sari 2015; Chawla et al. 2025).
+3. Single Point of Failure (SPOF) Risk and Mitigation
+The "single point of failure" risk in a consolidated environment means that because all core applications are hosted on the same physical server, a single hardware failure will cause all three core systems (transactions, database, and reporting) to fail simultaneously (Nguyen, Kim and Park 2014; Obasuyi and Sari 2015). To mitigate this, the following recommendations are suggested:
+•	High-Availability (HA) Clusters: Administrators should organize hypervisors into clusters to provide fault-tolerant mechanisms. This configuration ensures that if one physical host fails, its virtual machines can be automatically restarted or resumed on a healthy node in the cluster (Nguyen, Kim and Park 2014; Koratagere, Chandrashekarappa Koppal and Umesh 2023).
+•	Live VM Migration: This technology enables moving a running virtual machine from one physical host to another without interrupting service (Hijji et al. 2022). This allows IT staff to perform proactive maintenance on a failing host without downtime for the applications (Hijji et al. 2022).
+4. Emulation vs. Simple Virtualization for Legacy Applications
+Emulation (often implemented at the Instruction Set Architecture level) differs from simple virtualization in that it creates a complete hardware architecture in software, simulating the behavior of one processor on a completely different one (Geeta and Prakash 2019). Simple virtualization is much faster because most of the code executes directly on the physical hardware without interpretation (Ali and Meghanathan 2011).
+For the legacy Windows application, emulation could offer a viable solution if the software requires an older processor architecture that is no longer physically available (Geeta and Prakash 2019). However, this would result in a tremendous performance penalty because every instruction from the legacy software must be translated to be understood by the modern physical CPU (Ali and Meghanathan 2011; Geeta and Prakash 2019).
+ 
+References
+Ali, I. and Meghanathan, N. 2011. Virtual Machines And Networks - Installation, Performance, Study, Advantages And Virtualization Options. International Journal of Network Security & Its Applications, 3 (1): 1-15.
+
+Chawla, N., Asita, G., Satish, P., Pravin, T., Rajendra, J., Gururaj, D. and Sagar, P. 2025. Hypervisor-Based Virtualization In Cloud Computing: Performance And Security Analysis. International Journal of Computational and Experimental Science and Engineering, 11 (2)
+
+Geeta and Prakash, S. 2019. Role of Virtualization Techniques in Cloud Computing Environment. In: Advances in Computer Communication and Computational Sciences.   439-450. 
+
+Hijji, M., Ahmad, B., Alam, G., Alwakeel, A., Alwakeel, M., Abdulaziz Alharbi, L., Aljarf, A. and Khan, M. U. 2022. Cloud Servers: Resource Optimization Using Different Energy Saving Techniques. Sensors (Basel), 22 (21)
+
+Juiz, C. and Bermejo, B. 2024. On the scalability of the speedup considering the overhead of consolidating virtual machines in servers for data centers. The Journal of Supercomputing, 80 (9): 12463-12511.
+
+Koratagere, S., Chandrashekarappa Koppal, R. K. and Umesh, I. M. 2023. Server virtualization in higher educational institutions: a case study. International Journal of Electrical and Computer Engineering (IJECE), 13 (4)
+
+Nguyen, T. A., Kim, D. S. and Park, J. S. 2014. A comprehensive availability modeling and analysis of a virtualized servers system using stochastic reward nets. ScientificWorldJournal, 2014: 165316.
+
+Obasuyi, G. C. and Sari, A. 2015. Security Challenges of Virtualization Hypervisors in Virtualized Hardware Environment. International Journal of Communications, Network and System Sciences, 08 (07): 260-273.
+
+
