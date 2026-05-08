@@ -1,0 +1,179 @@
+Question 1
+a). Evaluation of the IaaS Shared Responsibility Model
+The Infrastructure as a Service (IaaS) shared responsibility model establishes a clear
+division of duties in which the cloud provider is responsible for the security “of” the cloud,
+while the consumer is responsible for the security “in” the cloud (A Cloud Guru, 2023).
+This distinction is fundamental in transitioning from traditional infrastructure ownership
+to a virtualized service model.
+Referencing the IaaS Component Stack, the five layers strictly managed by the provider
+include:
+1. Physical Facilities – Data centres, including power, cooling, and physical security
+2. Server Hardware – Physical compute hosts and processing units
+3. Storage Devices – Physical disks and storage infrastructure
+4. Networking – Physical routers, switches, and cabling
+5. Virtualization Layer – Hypervisors enabling virtual machine abstraction
+These layers align with definitions provided by the National Institute of Standards and
+Technology (2011) and conceptual frameworks by Thomas Erl et al. (2013).
+The provider’s management of these layers enables Service Abstraction, which refers to
+the concealment of complex infrastructure operations behind simplified, softwaredefined
+interfaces (Erl et al., 2013). Through virtualization, physical resources are
+transformed into on-demand virtual components, such as virtual machines, storage
+volumes, and virtual networks.
+This abstraction:
+ Eliminates the need for hardware procurement and maintenance
+ Removes responsibility for physical security and environmental controls
+ Enables rapid provisioning and scalability
+ Reduces capital expenditure in favour of operational expenditure
+b). Consumer Responsibilities and Operational Liabilities under the SPI Model
+In contrast to the provider-managed layers, the SPI (Software–Platform–Infrastructure)
+model assigns significant responsibility to TechStream’s internal team for managing the
+upper layers of the stack. These include:
+1. Guest Operating System
+2. Middleware (web servers, database systems)
+3. Runtime Environments (programming frameworks)
+4. Applications (custom-developed services)
+5. Data (sensitive financial and user information)
+According to the National Institute of Standards and Technology (2011), IaaS enables
+consumers to deploy and run arbitrary software, thereby granting them full
+administrative control over these layers.
+This creates several operational liabilities, including:
+ Operating System Management: Regular patching, updates, and vulnerability
+mitigation
+ Security Configuration: Managing firewalls, access controls, and antivirus
+systems (A Cloud Guru, 2023)
+ Middleware Maintenance: Ensuring compatibility and performance optimisation
+ Application Management: Debugging, scaling, and maintaining uptime
+ Data Governance: Ensuring encryption, backups, and regulatory compliance
+These layers are categorized as “managed by consumers” because they are closely
+tied to business-specific logic, security policies, and regulatory requirements, which
+cannot be standardized by the provider without limiting flexibility (NIST, 2011).
+In a high-stakes production environment, the risks of mismanagement are substantial:
+ Increased security vulnerabilities due to unpatched systems
+ Potential data breaches from misconfigured access controls
+ Regulatory non-compliance with financial data protection laws
+ System downtime, affecting customer trust and revenue
+ Data integrity failures, impacting decision-making and operations
+As noted by Erl et al. (2013), while IaaS provides flexibility and scalability, it also
+introduces increased management complexity an d requires strong governance from the
+consumer side.
+Question 2
+a). Comparison of cloud delivery models and Technical progression of
+abstraction
+In a comparison of cloud delivery models, Software-as-a-Service (SaaS) provides a
+significantly higher degree of “implementation hiding” than Platform-as-a-Service (PaaS)
+(Erl et al., 2013). While PaaS abstracts the underlying infrastructure (such as servers
+and operating systems), the consumer is still responsible for the implementation and
+management of the application code itself (NIST, 2011; Erl et al., 2013). In contrast,
+SaaS achieves maximum service abstraction by hiding not only the infrastructure but
+also the entire application logic and its technical implementation, leaving the user with
+only limited application configuration settings (NIST, 2011; Erl et al., 2013).
+The technical progression of abstraction intensifies as an organization moves through
+the following layers:
+ IaaS Foundation: This provides the lowest level of abstraction, where the
+provider hides only the physical hardware and virtualization layer, requiring the
+consumer to manage everything from the operating system upward ( NIST, 2018;
+A Cloud Guru, 2023).
+ PaaS Elevation: As the organization moves to PaaS, the level of abstraction
+increases to include the middleware, runtimes, and the operating system,
+allowing the consumer to focus purely on application deployment and code
+( NIST, 2018; Google Cloud, 2023).
+ SaaS Delivery: At this final stage, the level of abstraction is at its highest, as the
+provider packages the entire software solution into a “ready-to-use” product,
+completely relieving the consumer of any technical or operational implementation
+details (NIST, 2011, Erl et al., 2013).
+b). Long-Term Impact on software lifecycle management when transitioning from
+PaaS to SaaS
+The long-term impact on software lifecycle management for a team like DevFlow shifts
+dramatically when moving from a platform-focused model to a SaaS model. Under a
+Platform-as-a-Service model like Google App Engine, DevFlow is relieved of
+infrastructure administration, such as provisioning and resource management, but they
+retain full responsibility for the application lifecycle, including code updates and
+application-level security ( NIST, 2011; Google Cloud, 2023). While Google handles the
+underlying platform patches, DevFlow must still manage the "long-term headache" of
+maintaining their custom-built software (Google Cloud, 2023).
+When moving to a SaaS model like Salesforce, this responsibility shifts significantly to
+the provider. The SaaS provider is strictly responsible for all critical tasks, including
+security patches, application upgrades, and infrastructure maintenance (Erl et al., 2013;
+NIST, 2018 ). This transition eliminates DevFlow’s need for an internal team to manage
+software versions or bug fixes, as the provider manages the entire application stack on
+their behalf (NIST, 2011; Google Cloud, 2023 ). Consequently, the operational liability
+for software performance and reliability moves from DevFlow to the cloud provider, as
+governed by the Service Level Agreement (SLA) ( Erl et al., 2013; A Cloud Guru, 2023).
+Question 3
+a). Community Cloud deployment and Cost-Benefits of Public and Cloud Security
+Boundaries of Private Cloud
+A Community Cloud deployment is the optimal choice for this university consortium
+because it is specifically designed for exclusive use by a community of consumers with
+shared concerns, such as a common mission, security requirements, and regulatory
+compliance policies (NIST SP 800-145; NIST SP 500-322). The specific “Common
+Purpose” justifying this restricted-access model is the collaborative hosting of sensitive
+research, genomic sequencing and socioeconomic data modeling, which necessitates
+strict adherence to local data protection regulations, such as the Protection of Personal
+Information Act, 2013 (POPIA), which general public environments may not satisfy
+(Protection of Personal Information Act, 2013).
+This model successfully bridges the gap between public and private deployments by
+combining their respective strengths:
+ Cost-Benefits of Public Cloud: Like a public cloud, a community cloud
+leverages resource pooling, allowing the universities to benefit from economies
+of scale and proportional costs by sharing a common infrastructure (NIST, 2011;
+Erl et al., 2013). This reduces the need for each institution to make significant upfront
+capital investments in individual HPC hardware (NIST, 2011).
+ Security Boundaries of Private Cloud: Unlike a public cloud that is open to the
+public, a community cloud provides heightened privacy and security (NIST, 2011).
+By restricting access to a specific, known set of participating organizations, it
+creates a more controlled trust boundary, ensuring that sensitive research data is
+handled within an environment that mimics the exclusivity and governance of a
+private cloud (NIST, 2011; Erl et al., 2013).
+b). Comparison of Software-as-a-Service (SaaS) and Application Service
+Provider (ASP)- Multi-tenancy and Scalability
+Modern Software-as-a-Service (SaaS) delivery represents a significant technical and
+economic evolution over the 1990s Application Service Provider (ASP) or "Hosted
+Application" models, primarily through its approach to multi-tenancy and scalability:
+ Multi-tenancy: Legacy ASP models often relied on single-tenant architectures
+where each customer required separate, siloed resources, leading to significant
+complexities related to upkeep and high initial expenses (IJITCS, 2024). In
+contrast, modern SaaS is built on a multi-tenant model where the provider shares
+a pool of configurable computing resources among multiple customers (NIST
+2011; Google Cloud, 2023). This allows the consortium to share computing
+resources more efficiently through logical isolation, as the provider dynamically
+assigns and reassigns physical and virtual resources according to the demand of
+each university (NIST 2011).
+ Scalability: While 1990s models were limited by the fixed capacity of physical
+hardware, modern SaaS utilizes rapid elasticity (Buyya et al., 2009; NIST, 2011).
+This characteristic allows the HPC infrastructure to scale "outward and inward"
+automatically and nearly instantaneously to meet the massive processing
+demands of genomic sequencing (NIST, 2011). To the academic consortium,
+these resources appear unlimited and can be appropriated in any quantity at any
+time without the traditional "management headaches" of manual capacity
+planning (NIST, 2011; Erl et al., 2013).
+Economically, modern SaaS is superior because it replaces anticipated capital
+expenditures with measured service (Erl et al., 2013; Google Cloud, 2023). The
+consortium only pays for what it consumes, achieving economic agility that the legacy
+ASP approach, which often required rigid, long-term contracts for fixed capacity could
+not provide (NIST 2011; Erl et al., 2013).
+References
+A Cloud Guru (2023) AWS Shared Responsibility Model Explained. Available at:
+https://acloudguru.com/blog/engineering/aws-shared-responsibility-model-explained
+(Accessed: 17 March 2026).
+Eloy Simmon (2018) Evaluation of Cloud Computing Services Based on NIST SP
+800-145 (Special Publication 500-322). Available at:
+https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-322.pdf
+(Accessed: 17 March 2026).
+Google Cloud (2023) Introduction to Google Cloud. Available at:
+https://cloud.google.com/learn/what-is-google-cloud (Accessed: 17 March 2026).
+National Institute of Standards and Technology (2011) The NIST Definition of Cloud
+Computing (Special Publication 800-145). Available at:
+https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf
+(Accessed: 17 March 2026).
+Rajkumar Buyya et al. (2009) Cloud Computing and Emerging IT Platforms: Vision,
+Hype, and Reality for Delivering Computing as the 5th Utility. Available at:
+https://arxiv.org/abs/0903.2525 (Accessed: 17 March 2026).
+Republic of South Africa (2013) Protection of Personal Information Act (POPIA).
+Available at:
+https://www.justice.gov.za/inforeg/docs/InfoRegSA-act2013-004.pdf (Accessed: 17
+March 2026).
+Salesforce (2023) Sales Cloud Basics. Available at:
+https://www.salesforce.com/products/sales-cloud/overview/ (Accessed: 17 March
+2026).
+Thomas Erl, Puttini, R. and Mahmood, Z. (2013) Cloud Computing: Concepts,
+Technology & Architecture. Boston: Prentice Hall.
